@@ -1,0 +1,21 @@
+{
+    "name": "seho-nl/simple-dto",
+    "description": "Basic DTO, Entity, Assembler and Transformer interfaces and classes",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Sebastien Hoek",
+            "email": "sebastienhoek@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.0",
+        "symfony/validator": "^5.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "SeHo\\SimpleDTO\\": "src/"
+        }
+    }
+}

@@ -1,1 +1,1 @@
-# simple-dto
+# Simple DTO, Entity, Assembler and Transformer interfaces

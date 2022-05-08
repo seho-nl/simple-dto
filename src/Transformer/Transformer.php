@@ -7,8 +7,6 @@ use Symfony\Component\Validator\Validation;
 
 abstract class Transformer implements TransformerInterface
 {
-    protected string $servesDto;
-
     /**
      * Validate all constraints and add resulting violations to the DataTransferObject.
      */

@@ -2,12 +2,14 @@
 
 namespace SeHo\SimpleDTO\Exception;
 
+use SeHo\SimpleDTO\DTO\DTOInterface;
+
 class InvalidDTOException extends \InvalidArgumentException
 {
-    protected string $message = 'Expecting a Data Transfer Object of class %s but %s is provided.';
+    private const MESSAGE = 'Expecting a Data Transfer Object of class %s but %s is provided.';
 
-    public function __construct($entity, string $expectedClassString, int $code = 0, \Throwable|null $previous = null)
+    public function __construct(DTOInterface $dto, string $expectedClassString, int $code = 0, \Throwable|null $previous = null)
     {
-        parent::__construct(sprintf($this->message, $expectedClassString, $entity::class), $code, $previous);
+        parent::__construct(sprintf(self::MESSAGE, $expectedClassString, $dto::class), $code, $previous);
     }
 }

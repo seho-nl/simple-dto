@@ -2,15 +2,13 @@
 
 namespace SeHo\SimpleDTO\DTO;
 
-use Exception;
-use Symfony\Component\Validator\ConstraintViolationInterface;
 use Symfony\Component\Validator\ConstraintViolationList;
 use Symfony\Component\Validator\ConstraintViolationListInterface;
 
 /**
  * Class DataTransferObject.
  */
-abstract class DataTransferObject implements DataTransferObjectInterface
+abstract class DTO implements DTOInterface
 {
     protected ConstraintViolationList $constraintViolationList;
 
@@ -19,18 +17,11 @@ abstract class DataTransferObject implements DataTransferObjectInterface
         return 0 === $this->constraintViolationList->count();
     }
 
-    /**
-     * @return ConstraintViolationInterface[]
-     */
-    public function getConstraintViolations(): array
+    public function getConstraintViolations(): \ArrayIterator
     {
-        try {
-            $this->createConstraintViolationList();
+        $this->createConstraintViolationList();
 
-            return $this->constraintViolationList->getIterator();
-        } catch (Exception $e) {
-            return [];
-        }
+        return $this->constraintViolationList->getIterator();
     }
 
     public function addConstraintViolations(ConstraintViolationListInterface $constraintViolations): void

@@ -8,14 +8,14 @@ use Symfony\Component\Validator\ConstraintViolationListInterface;
 /**
  * Interface DataTransferObjectInterface.
  */
-interface DataTransferObjectInterface
+interface DTOInterface
 {
     public function isValid(): bool;
 
     /**
-     * @return ConstraintViolationInterface[]
+     * @return \ArrayIterator<int, ConstraintViolationInterface>
      */
-    public function getConstraintViolations(): array;
+    public function getConstraintViolations(): \ArrayIterator;
 
     public function addConstraintViolations(ConstraintViolationListInterface $constraintViolations): void;
 }
